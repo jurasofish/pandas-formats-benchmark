@@ -1,0 +1,8 @@
+pandas
+matplotlib
+numpy
+psutil
+pyarrow
+feather-format
+seaborn
+tables
