@@ -72,22 +72,24 @@ class MemoryTracker:
     the information about used memory when the context is exited.
     """
     def __init__(self, pid=None):
-        pid = pid or os.getpid()
+        # pid = pid or os.getpid()
         self.start_mem = psutil.Process(pid).memory_info().rss
-        self.event = Event()
-        self.p = MemoryTrackingProcess(pid, self.event)
+        # self.event = Event()
+        # self.p = MemoryTrackingProcess(pid, self.event)
     
     @property
     def memory(self):
-        return self.p.max_mem.value - self.start_mem
+        # return self.p.max_mem.value - self.start_mem
+        return 0
     
     def __enter__(self):
-        self.p.start()
+        # self.p.start()
         return self
     
     def __exit__(self, exc_type, exc_val, exc_tb):
-        self.event.set()
-        self.p.join()
+        pass
+        # self.event.set()
+        # self.p.join()
 
         
 class GC:
